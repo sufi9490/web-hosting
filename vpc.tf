@@ -4,6 +4,7 @@ resource "aws_vpc" "main" {
 
   tags = { 
     Name = "demo_vpc"
+    Purpose = "Jenkins Demo"
 
   }
 }
