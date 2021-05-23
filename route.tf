@@ -6,6 +6,7 @@ resource "aws_route_table" "table" {
   }
   tags = {
     Name = "MyRoute"
+    Purpose = "Demo_Project"
   }
 }
 
