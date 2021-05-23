@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "lonlywolf" {
     acl = "private"
     
     tags = {
-    	Name = "mobilelabs static"
-        Environment = "Development"
+    	Name = "demo_s3"
+        Purpose = "Demo_Project"
     }
 }
