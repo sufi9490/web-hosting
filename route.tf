@@ -1,11 +1,11 @@
-variable "subnet_id" {}
-
-data "aws_route_table" "selected" {
-  subnet_id = var.subnet_id
+resource "aws_route_table" "table" {
+  vpc_id = "${aws_vpc.main.id}"
+ route {
+    cidr_block = "10.0.0.0/16"
+    gateway_id = "${aws_internet_gateway.gw.id}"
+  }
+  tags = {
+    Name = "MyRoute"
+  }
 }
 
-resource "aws_route" "route" {
-  route_table_id            = data.aws_route_table.selected.id
-  destination_cidr_block    = "10.0.1.0/22"
-  vpc_peering_connection_id = "pcx-45ff3dc1"
-}
