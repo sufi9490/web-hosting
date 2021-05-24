@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "lonlywolf22" {
     bucket = "lonlywolf226"
-    acl = "public"
+    acl = "public-read-write"
     
     tags = {
     	Name = "demo_s3"
