@@ -19,7 +19,7 @@ resource "aws_s3_bucket" "site" {
 
 resource "aws_s3_bucket" "b1" {
 
-  bucket = "$b1.{s3-terraform-bucket-lab-demo}"
+  bucket = "s3-terraform-bucket-lab-demo"
 
   acl    = "public-read"
 
