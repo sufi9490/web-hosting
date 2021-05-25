@@ -1,13 +1,13 @@
-provider "aws"{:wq
-
+provider "aws" {
   region = "us-east-2"
 }
+resource "aws_s3_bucket" "b1" {
 
-resource "aws_s3_bucket" "site" {
-
-  bucket = "var.site_name"
+  bucket = "s3-terraform-bucket-lab-demo"
 
   acl    = "public-read"
+
+  policy = file("policy.json")
 
   website {
 
@@ -16,17 +16,15 @@ resource "aws_s3_bucket" "site" {
     error_document = "error.html"
   }
 
+  tags = {
+
+    Name        = "My bucket"
+
+    Environment = "Dev"
+
+  }
+
 }
-
-resource "aws_s3_bucket" "b1" {
-
-  bucket = "$b1.{var.site_name}"
-
-  acl    = "public-read"
-
-
-}
-
 
 resource "aws_s3_bucket_object" "object1" {
 
@@ -55,4 +53,3 @@ resource "aws_s3_bucket_object" "object2" {
   etag = filemd5("html/error.html")
 
 }
-
