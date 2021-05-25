@@ -1,4 +1,6 @@
-provider "aws" {}
+provider "aws" {
+  us-east-2c
+}
 
 module "s3-website" {
   source = "../../modules/s3-website"
