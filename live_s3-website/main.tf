@@ -1,5 +1,5 @@
 provider "aws" {
-  us-east-2c
+ region = "us-east-2c"
 }
 
 module "s3-website" {
