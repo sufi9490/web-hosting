@@ -15,9 +15,6 @@ resource "aws_s3_bucket" "b1" {
 
     error_document = "error.html"
   }
-   website {
-     redirect_all_requests_to = "https://www.s3-terraform-bucket-lab-demo"
-  }
 
 
 
