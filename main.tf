@@ -31,13 +31,12 @@ resource "aws_s3_bucket_object" "object1" {
 
   bucket = aws_s3_bucket.b1.id
 
-  key    = "index"
+  key    = "index.html"
 
   acl    = "public-read-write"
 
   source = "index.html"
 
-  etag = file("index.html")
 
 }
 
@@ -45,12 +44,11 @@ resource "aws_s3_bucket_object" "object2" {
 
   bucket = aws_s3_bucket.b1.id
 
-  key    = "error"
+  key    = "error.html"
 
   acl    = "public-read-write"
 
   source = "error.html"
 
-  etag = file("error.html")
 
 }
