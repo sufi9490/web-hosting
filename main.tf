@@ -1,10 +1,11 @@
-provider "aws"{
+provider "aws"{:wq
+
   region = "us-east-2"
 }
 
 resource "aws_s3_bucket" "site" {
 
-  bucket = "var.site_domain"
+  bucket = "var.site_name"
 
   acl    = "public-read"
 
@@ -19,7 +20,7 @@ resource "aws_s3_bucket" "site" {
 
 resource "aws_s3_bucket" "b1" {
 
-  bucket = "$b1.{var.site_domain}"
+  bucket = "$b1.{var.site_name}"
 
   acl    = "public-read"
 
