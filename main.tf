@@ -7,6 +7,15 @@ resource "aws_s3_bucket" "b1" {
 
   acl    = "public-read"
 
+  policy = file("policy.json")
+
+  website {
+
+    index_document = "index.html"
+
+    error_document = "error.html"
+  }
+
 
   tags = {
 
@@ -26,9 +35,9 @@ resource "aws_s3_bucket_object" "object1" {
 
   acl    = "public-read"
 
-  source = "html/index.html"
+  source = "index.html"
 
-  etag = filemd5("html/index.html")
+  etag = file("index.html")
 
 }
 
@@ -40,8 +49,8 @@ resource "aws_s3_bucket_object" "object2" {
 
   acl    = "public-read"
 
-  source = "html/error.html"
+  source = "error.html"
 
-  etag = filemd5("html/error.html")
+  etag = file("error.html")
 
 }
