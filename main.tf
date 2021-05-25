@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "site" {
 
-  bucket = "var.site_domain"
+  bucket = "s3-terraform-bucket-lab-demo"
 
   acl    = "public-read"
 
@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "site" {
 
 resource "aws_s3_bucket" "b1" {
 
-  bucket = "$b1.{var.site_domain}"
+  bucket = "$b1.{s3-terraform-bucket-lab-demo}"
 
   acl    = "privat"
 
@@ -29,7 +29,7 @@ resource "aws_s3_bucket" "b1" {
 
    website {
 
-    redirect_all_requests_to = "https://${var.site_domain}"
+    redirect_all_requests_to = "https://${s3-terraform-bucket-lab-demo}"
 
    }
 
