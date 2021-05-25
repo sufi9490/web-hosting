@@ -1,13 +1,14 @@
 provider "aws" {
   region = "us-east-2"
 }
-resource "aws_s3_bucket" "b1" {
 
-  bucket = "s3-terraform-bucket-lab-demo"
+resource "aws_s3_bucket" "site" {
+
+  bucket = "var.site_domain"
 
   acl    = "public-read"
 
-  policy = file("policy.json")
+  policy = aws_s3_bucket_policy.public_read
 
   website {
 
@@ -16,14 +17,41 @@ resource "aws_s3_bucket" "b1" {
     error_document = "error.html"
   }
 
-  tags = {
+}
 
-    Name        = "My bucket"
+resource "aws_s3_bucket" "b1" {
 
-    Environment = "Dev"
+  bucket = "$b1.{var.site_domain}"
 
-  }
+  acl    = "privat"
 
+  policy = ""
+
+   website {
+
+    redirect_all_requests_to = "https://${var.site_domain}"
+
+   }
+
+}
+
+resource "aws_s3_bucket_policy" "public_read" {
+  bucket = aws_s3_bucket.site.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid       = "PublicReadGetObject"
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:GetObject"
+        Resource = [
+          aws_s3_bucket.site.arn,
+          "${aws_s3_bucket.site.arn}/*",
+        ]
+      },
+    ]
+  })
 }
 
 resource "aws_s3_bucket_object" "object1" {
