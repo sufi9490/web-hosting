@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "site" {
 
   acl    = "public-read"
 
-  policy = aws_s3_bucket_policy.public_read
+  policy = aws_s3_bucket.site
 
   website {
 
