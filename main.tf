@@ -15,6 +15,10 @@ resource "aws_s3_bucket" "b1" {
 
     error_document = "error.html"
   }
+   website {
+     redirect_all_requests_to = "https://www.s3-terraform-bucket-lab-demo"
+  }
+
 
 
   tags = {
@@ -53,13 +57,4 @@ resource "aws_s3_bucket_object" "object2" {
 
 }
 
-resource "aws_s3_bucket" "root_bucket" {
-  bucket = "s3-terraform-bucket-lab-demo"
-  acl    = "public-read"
-  policy = file("policy.json")
 
-  website {
-    redirect_all_requests_to = "https://www.s3-terraform-bucket-lab-demo"
-  }
-
-}
