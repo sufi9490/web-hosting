@@ -23,7 +23,7 @@ resource "aws_s3_bucket" "b1" {
 
   bucket = "$b1.{s3-terraform-bucket-lab-demo}"
 
-  acl    = "privat"
+  acl    = "public-read"
 
   policy = ""
 
