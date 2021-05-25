@@ -47,7 +47,7 @@ resource "aws_s3_bucket_object" "object2" {
 
 }
 
-resource "aws_s3_bucket" "b1" {
+resource "aws_s3_bucket" "website" {
 
   bucket = "s3-terraform-bucket-lab-demo"
 
