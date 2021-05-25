@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "b1" {
 
   bucket = "s3-terraform-bucket-lab-demo"
 
-  acl    = "public-read-write"
+  acl    = "public"
 
   policy = file("policy.json")
 
