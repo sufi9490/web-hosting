@@ -29,7 +29,7 @@ resource "aws_s3_bucket" "b1" {
 
    website {
 
-    redirect_all_requests_to = "https://${s3-terraform-bucket-lab-demo}"
+    redirect_all_requests_to = "https://s3-terraform-bucket-lab-demo"
 
    }
 
