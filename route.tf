@@ -5,7 +5,7 @@ resource "aws_route_table" "table" {
     gateway_id = "${aws_internet_gateway.gw.id}"
   }
   tags = {
-    Name = "MyRoute"
+    Name = "New_Route"
     Purpose = "Demo_Project"
   }
 }
