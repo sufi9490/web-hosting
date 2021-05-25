@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "b1" {
 
   website {
 
-    index_docuemnt = "index.html"
+    index_document = "index.html"
 
     error_document = "error.html"
   }
