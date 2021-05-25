@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "lonlywolf22" {
-    bucket = "lonlywolfPKS"
+    bucket = "lonlywolfpks"
     acl = "public-read-write"
     
     tags = {
