@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-2"
-}
-
 module "s3-website" {
   source = "../../modules/s3-website"
 
