@@ -31,6 +31,8 @@ resource "aws_s3_bucket_object" "object1" {
 
   bucket = aws_s3_bucket.b1.id
 
+  key    = "index"
+
   acl    = "public-read"
 
   source = "index.html"
@@ -42,6 +44,8 @@ resource "aws_s3_bucket_object" "object1" {
 resource "aws_s3_bucket_object" "object2" {
 
   bucket = aws_s3_bucket.b1.id
+
+  key    = "error"
 
   acl    = "public-read"
 
