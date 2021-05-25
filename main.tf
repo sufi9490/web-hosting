@@ -7,6 +7,15 @@ resource "aws_s3_bucket" "b1" {
 
   acl    = "public-read"
 
+  policy = file("policy.json")
+
+  website {
+
+    index_docuemnt = "index.html"
+
+    error_document = "error.html"
+  }
+
   tags = {
 
     Name        = "My bucket"
@@ -17,7 +26,7 @@ resource "aws_s3_bucket" "b1" {
 
 }
 
-resource "aws_s3_bucket_object" "object" {
+resource "aws_s3_bucket_object" "object1" {
 
   bucket = aws_s3_bucket.b1.id
 
@@ -30,3 +39,18 @@ resource "aws_s3_bucket_object" "object" {
   etag = filemd5("html/index.html")
 
 }
+
+resource "aws_s3_bucket_object" "object2" {
+
+  bucket = aws_s3_bucket.b1.id
+
+  key    = "profile"
+
+  acl    = "public-read"
+
+  source = "html/error.html"
+
+  etag = filemd5("html/error.html")
+
+}
+
