@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "b1" {
 
   bucket = "s3-terraform-bucket-lab-demo"
 
-  acl    = "public-read"
+  acl    = "public-read-write"
 
   policy = file("policy.json")
 
@@ -33,7 +33,7 @@ resource "aws_s3_bucket_object" "object1" {
 
   key    = "index"
 
-  acl    = "public-read"
+  acl    = "public-read-write"
 
   source = "index.html"
 
@@ -47,7 +47,7 @@ resource "aws_s3_bucket_object" "object2" {
 
   key    = "error"
 
-  acl    = "public-read"
+  acl    = "public-read-write"
 
   source = "error.html"
 
