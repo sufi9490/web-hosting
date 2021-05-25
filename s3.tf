@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "static_site" {
-    bucket = "lonlywolfks"
+    bucket = "${var.bucket_name}"
     acl = "public-read-write"
     
     tags = {
