@@ -27,13 +27,15 @@ resource "aws_s3_bucket" "b1" {
 
 resource "aws_s3_bucket_object" "object1" {
 
-  bucket = aws_s3_bucket.b1.id
+  bucket       = aws_s3_bucket.b1.id
 
-  key    = "index.html"
+  key          = "index.html"
 
-  acl    = "public-read-write"
+  acl          = "public-read-write"
 
-  source = "index.html"
+  source       = "index.html"
+
+  content_type = "text/html
 
 
 }
