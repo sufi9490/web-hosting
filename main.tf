@@ -42,13 +42,16 @@ resource "aws_s3_bucket_object" "object1" {
 
 resource "aws_s3_bucket_object" "object2" {
 
-  bucket = aws_s3_bucket.b1.id
+  bucket       = aws_s3_bucket.b1.id
 
-  key    = "error.html"
+  key          = "error.html"
 
-  acl    = "public-read-write"
+  acl          = "public-read-write"
 
-  source = "error.html"
+  source       = "error.html"
+
+  content_type = "text/html"
+
 
 
 }
