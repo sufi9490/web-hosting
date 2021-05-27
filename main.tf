@@ -29,7 +29,7 @@ resource "aws_s3_bucket_object" "object1" {
 
   bucket       = aws_s3_bucket.b1.id
 
-  key          = "profile"
+  key          = "index.html"
 
   acl          = "public-read-write"
 
@@ -44,7 +44,7 @@ resource "aws_s3_bucket_object" "object2" {
 
   bucket       = aws_s3_bucket.b1.id
 
-  key          = "profile"
+  key          = "error.html"
 
   acl          = "public-read-write"
 
