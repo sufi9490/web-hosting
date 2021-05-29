@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "b1" {
 
-  bucket = "sufi-bucket"
+  bucket = "sufiyan-bucket"
 
   acl    = "public-read"
 
